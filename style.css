@@ -131,6 +131,15 @@ input[readonly] { color: var(--muted); }
 }
 #screen-status { color: var(--accent); }
 
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 92, 138, 0); }
+  50%      { box-shadow: 0 0 0 7px rgba(255, 92, 138, 0.28); }
+}
+.btn.attention {
+  border-color: var(--accent);
+  animation: pulse 1.1s ease-in-out 3;
+}
+
 .player-wrap {
   position: relative;
   width: 100%;
@@ -147,6 +156,27 @@ input[readonly] { color: var(--muted); }
   width: 100% !important;
   height: 100% !important;
   border: 0;
+}
+
+.tap-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  z-index: 5;
+  padding: 16px;
+  text-align: center;
+}
+.tap-overlay .tap-btn {
+  background: linear-gradient(135deg, var(--accent), #ff8aa6);
+  color: #1a0a12;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 14px 22px;
+  border-radius: 999px;
 }
 
 .placeholder {
