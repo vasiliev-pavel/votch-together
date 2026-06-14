@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Votch Together — совместный просмотр</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍿</text></svg>" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>🍿 Votch&nbsp;Together</h1>
+    <span class="tag" id="status">Запуск…</span>
+  </header>
+
+  <main>
+    <section class="panel controls">
+      <label class="field">
+        <span>Ссылка на видео</span>
+        <div class="row">
+          <input id="url" type="text" placeholder="YouTube-ссылка или прямая ссылка на .mp4/.webm" />
+          <button id="load" class="btn primary">Открыть</button>
+        </div>
+        <small class="hint">Поддерживается: YouTube и прямые ссылки на видеофайлы (https).</small>
+      </label>
+
+      <label class="field">
+        <span>Пригласить друга — отправь эту ссылку</span>
+        <div class="row">
+          <input id="share" type="text" readonly placeholder="Ссылка появится после запуска…" />
+          <button id="copy" class="btn">Копировать</button>
+        </div>
+        <small class="hint" id="role-hint"></small>
+      </label>
+    </section>
+
+    <section class="stage">
+      <div class="stage-bar">
+        <button id="share-screen" class="btn">🖥 Поделиться экраном</button>
+        <span id="screen-status" class="hint"></span>
+      </div>
+      <div id="player-wrap" class="player-wrap">
+        <div class="placeholder">
+          <div class="placeholder-emoji">📺</div>
+          <p>Вставь ссылку на видео и нажми «Открыть».<br />Затем отправь другу ссылку-приглашение.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel chat">
+      <div id="chat-log" class="chat-log"></div>
+      <div class="row">
+        <input id="chat-input" type="text" placeholder="Сообщение…" maxlength="500" autocomplete="off" />
+        <button id="chat-send" class="btn">Отправить</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>Синхронизация P2P через WebRTC · без сервера · <a href="https://github.com" target="_blank" rel="noopener">GitHub Pages / Vercel</a></span>
+  </footer>
+
+  <script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script src="app.js"></script>
+</body>
+</html>
